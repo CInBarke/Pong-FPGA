@@ -50,8 +50,25 @@ também ver a resolução escolhida (detalhe, a tabela com as resoluções e sua
 ponto, se estiver tudo certo, podemos prosseguir para a próxima etapa, que também é a mais fácil, que é a tarefa de associar a cada pixel uma cor.
 
 ## 4. CORES, FINALMENTE:
-rfrfrfrf
+essa parte é basicamente trivial. Cria-se uma variável cujo valor será enviado para os pinos VGA_R, VGA_G, VGA_B, (existem 8 bits para cada um deles), isso faz com que você tenha cores agora (:
 
+### exercício 1: pintando a tela toda de vermelho:
+basta fazer exatamente oque foi dito, acima, mas fazer que VGA_R = 255, VGA_G = 0 e VGA_B = 0. Isso nunca é modificado então, portando, todos os pixels vão ser sempre pintados de vermelho, fazendo a tela ficar, obviamente, vermelha.
+
+### exercício 2: pintando uma bandeira:
+esse exercício é só para se familiarizar com o desenho de uma figura simples na tela. Basicamente, determina-se o número de linhas a serem desenhadas na tela, depois, cria-se um contador
+responsável por contar o número de linhas que já foram desenhadas na tela. Depois, determina-se que, para o contador em determinado intervalo, digamos, [0,50[ pintar determinada cor, depois, no intervalo de [50, 100[, pintar outra cor, e no intervalo de [100, 150], pintar ainda outra cor. Aqui, assumimos que são desenhadas 150 linhas no total, mas geralmente é muito mais que isso. Segue um exemplo agora de quando eu desenhei a bandeira alemã (foi a primeira bandeira com as cores em tiras horizontais que eu me lembrei na hora) usando esse método:
+
+![image](https://github.com/user-attachments/assets/81214f8c-8e6c-4ac9-8afa-b976f1c95da0)
+
+### exercício 3: fazer um plotter simples:
+basicamente, desenhe um círculo, ou um retângulo, etc etc. O básico. Isso é feito por meio de equações matématicas :D, basicamente, cria-se um contador que mapeia a linha atual (tipo uma coordenada Y), e um que mapeie a coluna atual (tipo a coordenada X), depois, mude essas coordenadas para que a origem fique no centro da tela. Depois, mude algumas coisas em uma das coordenadas de modo que a imagem não fique esticada ao longo do eixo-X, e agora, basta falar que, por exemplo, caso x^2 + y^2 = 5, desenhe a cor branca. Caso contrário, a cor preta. E pronto! você terá um círculo desenhado na sua tela. Com isso, qualquer forma que pode ser descrita por uma equação matemática pode ser desenhada na sua tela, contando que pontos flutuantes não importem no seu caso (algo que só acontece se você quiser dar zoom), contando que você, que nem foi meu caso, não pode usar esse tipo de coisa em verilog, e seja necessário implementá-los à mão.
+
+### exercício 4: pong:
+foi aqui que eu parei, eu ainda não terminei o pong, tecnicamente, mas está num nível que eu estou confortável, e que eu vou deixar para terminar depois (; mas enfim, como eu fiz isso?
+
+
+ 
 
 
 
