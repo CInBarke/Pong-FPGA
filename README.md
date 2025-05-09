@@ -7,7 +7,9 @@ Enfim, vamos às explicações sobre os principais tópicos!
 
 ## 2. PROTOCOLO DE COMUNICAÇÃO VGA:
 Esse é um dos protocolos de comunicação mais simples que tem, e é muito bom para projetos menores como esse. Enfim, vamos direto ao ponto e explicar como ele funciona
+
 ![image](https://github.com/user-attachments/assets/93da0790-8487-4593-800a-aa32f6bdb395)
+
 (imagem tirada de https://forum.digikey.com/t/vga-controller-vhdl/12794)
 como é possível ver na imagem acima, temos que nos preocupar com algumas coisas, que serão descritas a seguir:
 ### VSYNC E HSYNC:
@@ -21,7 +23,9 @@ Essa lógica será mostrada em uma imagem mais a frente, tirada do user manual d
 ### FRONT PORCH E BACK PORCH:
 é como se fosse o tempo de reação, os sinais de VSYNC e de HSYNC permanecem no nível lógico '1', porém, a imagem não está sendo mais desenhada, portanto, antecedem os pulsos do HSYNC e do 
 VSYNC (no caso do front porch) e o display da imagem / da nova linha criada (no caso do back porch)
+
 ![image](https://github.com/user-attachments/assets/a744fc56-b5f6-425e-a972-e62957b541ce)
+
 ^imagem ilustrando o pulso dos sinais de HSYNC e VSYNC, aqui, o 'Sync(a)' significa o intervalo de pulso dos VSYNC e HSYNC.
 Isso é basicamente tudo sobre o protocolo! 
 
@@ -33,9 +37,13 @@ basicamente, meu erro (assim creio eu) era não estar configurando também os pi
 tem suas cores dadas em RGB, que são sinais analógicos. Mas a FPGA só gera sinais digitais, como resolver isso? por meio de um DAC, que já existe na placa, e converte informação digital,
 como, por exemplo, um registrador contendo um número, em um sinal analógico, que é enviado para o monitor) O dac da altera é o ADV7123, e seu datasheet pode ser acessado por uma simples
 pesquisa no google. Em um deles, encontramos a seguinte tabela:
+
 ![image](https://github.com/user-attachments/assets/19644837-b952-4ad7-8ec6-689d6c3911b5)
+
 que descreve bem todos os sinais que também constam na tabela de pinos do user manual da DE2-115:
+
 ![image](https://github.com/user-attachments/assets/0e23f37e-e26c-4090-8944-386695917386)
+
 desses pinos, os que são importantes para o DAC são os pinos de VGA_SYNC_N, VGA_BLANK_N, e VGA_CLK, e são apresentados na tabela do datasheet do DAC como simplesmente "Sync", "Blank", e
 "CLOCK", configure eles e, caso não hajam outros problemas, o monitor já deve exibir que existe um dispositivo ligado a ele via VGA e, acessando as configurações do monitor, é possível
 também ver a resolução escolhida (detalhe, a tabela com as resoluções e suas respectivas frequências de pulso do HSYNC e VSYNC também estão disponíveis no user manual da DE2-115). Nesse
